@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <title>About Us | Ravi Malviya Industries Pvt. Ltd.</title>
+    <title>Careers | Ravi Malviya Industries Pvt. Ltd.</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-
+    <script src="js/cities.js"></script>
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -144,13 +144,13 @@
         <div class="container py-5">
             <div class="row align-items-center py-4">
                 <div class="col-md-6 text-center text-md-left">
-                    <h1 class="mb-4 mb-md-0 text-primary text-uppercase">About Us</h1>
+                    <h1 class="mb-4 mb-md-0 text-primary text-uppercase">Careers</h1>
                 </div>
                 <div class="col-md-6 text-center text-md-right">
                     <div class="d-inline-flex align-items-center">
                         <a class="btn btn-outline-primary" href="">Home</a>
                         <i class="fas fa-angle-double-right text-primary mx-2"></i>
-                        <a class="btn btn-outline-primary disabled" href="">About Us</a>
+                        <a class="btn btn-outline-primary " href="carrier.html">Careers</a>
                     </div>
                 </div>
             </div>
@@ -159,182 +159,90 @@
     <!-- Page Header Start -->
 
 
-    <!-- About Start -->
-    <div class="container-fluid bg-light">
+    <!-- Contact Start -->
+    <div class="container-fluid bg-white">
         <div class="container">
             <div class="row">
+
+                <div class="col-lg-7 mb-5 pl-lg-5">
+                    <div class="contact-form">
+
+                        <div><img class="img-fluid w-100 mb-4" src="img/rmiCarrier.jpg" alt="Image"></div>
+                        <div id="success"></div>
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <div class="control-group">
+                                <input type="text" class="form-control p-4" id="name" placeholder="Full Name" required="required" data-validation-required-message="Please enter your name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="email" class="form-control p-4" id="email" placeholder="Email" required="required" data-validation-required-message="Please enter your email" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control p-4" id="mobile" placeholder="Mobile Number" required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <select onchange="print_city('state', this.selectedIndex);" id="sts" name="stt" class="form-control " required data-validation-required-message="Please select State"></select>
+
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <select id="state" class="form-control" required></select>
+
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <select id="category_career" class="form-control" required>
+                                   <option value="ASS. MANAGER FOR SALES AND MARKETING" >ASS. MANAGER FOR SALES AND MARKETING</option>
+                                   <option value="DESIGNER">DESIGNER</option>
+                                   <option value="SALES MANAGER">SALES MANAGER</option>
+                                   <option value="SERVICE ENGINEER">SERVICE ENGINEER</option>
+                                   <option value="LATH OPERATOR">LATH OPERATOR</option>
+                                </select>
+
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea class="form-control p-4" rows="6" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <p class="help-block text-danger">Upload Resume</p>
+                                <input type="file" name="fileToUpload" id="fileToUpload">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
                 <div class="col-lg-5">
-                    <div class="d-flex flex-column align-items-center justify-content-center bg-primary h-100 py-5 px-3">
-                        <!-- <i class="flaticon-brickwall display-1 font-weight-normal text-secondary mb-3"></i> -->
-                        <img src="img/gold-biscuits.png" style="width: 200px;height:200px" wi alt="">
-                        <h4 class="display-3 mb-3">22+</h4>
-                        <h1 class="m-0">Years Experience</h1>
-                    </div>
-                </div>
-                <div class="col-lg-7 m-0 my-lg-5 pt-5 pb-5 pb-lg-2 pl-lg-5">
-                    <h6 class="text-primary font-weight-normal text-uppercase mb-3">Learn About Us</h6>
-                    <h1 class="mb-4 section-title">We are Manufacture of Gold Machineries using world's Best Manufacturing practice.</h1>
-                    <p>Ravi Malviya Industries Pvt. Ltd. manufactures Gold Machinery using the outstanding Manufacturing Technique. RMI incepted in the year 1998 at Ahmedabad, Gujarat. Over the years with the hard work and foresight of Mr. Ravi Malviya the
-                        company has grown and diversified into areas of manufacturing, exporting, importing and trading a high-quality assortment of the Jewellery Machinery.</p>
-                    <p>Today RMI is well accepted and trusted because we come up with novel and quality assured products to meet customer’s requirements. In RMI modern, high-tech production facilities and close attention is paid to even the tiniest of details
-                        to ensure consistently high quality.</p>
-                    <p>To meet the modern-time jewellery manufacturers expectations we offer a wide range of jewellery machines including Jewellery wire drawing machine,Wire & sheet rolling machine, Annealing machine, Jewellery bull block machine, Wire forming
-                        machine, Gold chain powder mixture, Gold draw bench machine, Pipe annealing machine , line center & hardening machine and other various tools & equipment.</p>
+                    <div class="d-flex flex-column justify-content-center bg-primary h-100 p-5">
+                        <div class="d-flex flex-column">
+                            <h2>
+                                <p>CAREER AT RAVI MALVIYA INDUTRIES </p>
+                            </h2>
+                            <h5>
+                                <p>We are Manufacture of Gold Machineries using world's Best Manufacturing practice. We make great efforts in selecting the right candidates and invest heavily to provide the retention and training. We believes that our growth
+                                    is the derivative of growth of each one of us. We look for dedicated, talented, and creative individuals who are willing to be a part of successful organization.</p>
+                            </h5>
 
-                    <p>We are the largest importer of jewellery machinery from Italy to offer technically advanced machinery for our Indian jewellery manufacturers. So, that they can take the benefit of every ounce of the latest technology at the best price.
-
-                    </p>
-                    <p>We have a team of experts that provides complete training with regular guidance to take the preventive precaution of machine units for the zero breaks down and to enhance the life of machinery. Along with that, we do the entire setup
-                        of chain-making plant, hollow machine chain plant and other various manufacturing setups for the jewellery industry. We also offer technical support and take care of repairing & rebuilding of the old machinery as well.</p>
-                    <ul class="list-inline">
-                        <li>
-                            <h5><i class="far fa-check-square text-primary mr-3"></i>OUR VISSION </h5>
-                            <p class="mb-4">Manufacture machinery for gold and silver with 100% accuracy and high quality worth every penny of the customer and become the ideal choice for jewellery manufacturers.</p>
-
-                        </li>
-                        <li>
-                            <h5><i class="far fa-check-square text-primary mr-3"></i>OUR MISSION</h5>
-                            <p class="mb-4">Quality and consistency is something that we stand for. We want to deliver technologically advanced high-quality products at an achievable price.</p>
-                        </li>
-                        <li>
-                            <h5><i class="far fa-check-square text-primary mr-3"></i>OUR GOAL </h5>
-                            <p class="mb-4">To become the example of premium technology, quality and service providers in manufacturing industries with global recognition.</p>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-
-    <div class="container-fluid bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 mt-5 py-5 pr-lg-5">
-                    <h6 class="text-primary font-weight-normal text-uppercase mb-3">Why Choose Us?</h6>
-
-                    <h4 class="text-primary font-weight-normal text-uppercase mb-3">CHOOSE RMI, CHOOSE BEST!</h4>
-                    <h1 class="mb-4 section-title">22+ Years Experience of the Manufacture of Gold Machineries.</h1>
-                    <ul class="list-inline">
-                        <li>
-                            <h5><i class="far fa-check-square text-primary mr-3"></i>QUALITY </h5>
-                            <p class="mb-4">We are an ISO certified company, our every process is attempted using the ISO 9001:2015 framework of quality management. Our quality team assures regular inspection and pays attention to details to ensure consistently high
-                                quality. </p>
-
-                        </li>
-                        <li>
-                            <h5><i class="far fa-check-square text-primary mr-3"></i>PERFORMANCE</h5>
-                            <p class="mb-4">Strongly built machines of RMI offer great performance. Every machine has undergone performance testing that ensures smooth and superior performance.
-                            </p>
-                        </li>
-                        <li>
-                            <h5><i class="far fa-check-square text-primary mr-3"></i>SAFTEY </h5>
-                            <p class="mb-4">We Design effective & protective machinery and apply all technical and organizational measures to ensure the safety of user.
-                            </p>
-                        </li>
-                        <li>
-                            <h5><i class="far fa-check-square text-primary mr-3"></i>INNOVATIVE DESIGN </h5>
-                            <p class="mb-4">We design our Machinery using the latest technology, a good quality raw material for longer life, excellent performance and to meet the expectation of the customer.
-                            </p>
-                        </li>
-                        <li>
-                            <h5><i class="far fa-check-square text-primary mr-3"></i>EXPERIENCE </h5>
-                            <p class="mb-4">Our experience of 22+ years in this industry speaks for itself. Successfully & consistently over the years we are offering the best for the customers.
-                            </p>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-lg-5">
-                    <div class="d-flex flex-column align-items-center justify-content-center h-100 overflow-hidden">
-                        <img class="h-100" src="img/about-us.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Team Start -->
-    <div class="container-fluid bg-light">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 col-sm-6">
-                    <div class="py-5 px-4 h-100 bg-primary d-flex flex-column align-items-center justify-content-center">
-                        <h6 class="text-white font-weight-normal text-uppercase mb-3">Our Team</h6>
-                        <h1 class="mb-0 text-center">Meet Our Team Members</h1>
-                    </div>
-                </div>
-
-                <div class="col-md-8 col-sm-6 p-0 py-sm-5">
-                    <div class="owl-carousel team-carousel position-relative p-0 py-sm-5">
-                        <div class="team d-flex flex-column text-center mx-3">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
-                                <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-                                    <a class="btn btn-outline-primary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-primary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary text-center px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column bg-secondary text-center py-3">
-                                <h5 class="text-white">Ravi Malviye</h5>
-                                <!-- <p class="m-0">Designation</p> -->
-                            </div>
                         </div>
 
-                        <div class="team d-flex flex-column text-center mx-3">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
-                                <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-                                    <a class="btn btn-outline-primary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-primary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary text-center px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column bg-secondary text-center py-3">
-                                <h5 class="text-white">Deepak Malviya</h5>
-                                <!-- <p class="m-0">Designation</p> -->
-                            </div>
-                        </div>
-                        <div class="team d-flex flex-column text-center mx-3">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
-                                <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-                                    <a class="btn btn-outline-primary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-primary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary text-center px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column bg-secondary text-center py-3">
-                                <h5 class="text-white">Kuldeep Malviya</h5>
-                                <!-- <p class="m-0">Designation</p> -->
-                            </div>
-                        </div>
 
-                        <div class="team d-flex flex-column text-center mx-3">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
-                                <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-                                    <a class="btn btn-outline-primary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-primary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary text-center px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column bg-secondary text-center py-3">
-                                <h5 class="text-white">Amit Gupta</h5>
-                                <!-- <p class="m-0">Designation</p> -->
-                            </div>
-                        </div>
+
+
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
-    <!-- Team End -->
+    <!-- Contact End -->
 
 
     <!-- Footer Start -->
@@ -430,6 +338,9 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        print_state("sts");
+    </script>
 </body>
 
 </html>
