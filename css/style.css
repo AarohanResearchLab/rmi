@@ -10028,3 +10028,20 @@ h6 {
     padding: 0;
     list-style-type: none;
 }
+
+.productList {
+    min-width: 85%;
+    max-width: 85%;
+}
+
+#more {
+    display: none;
+}
+
+#more1 {
+    display: none;
+}
+
+#more2 {
+    display: none;
+}
