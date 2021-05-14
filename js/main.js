@@ -135,6 +135,67 @@ function myFunction() {
     }
 }
 
+function sendMailcontactus() {
+
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var mobile = $('#mobile').val();
+    var sts = $('#sts').val();
+    var state = $('#state').val();
+    var message = $('#message').val();
+    var subject = 'Hi,<br><br> Name:- ' + name + ' <br> Email:- ' + email + ' ' +
+        ' <br> Mobile Number:- ' + mobile + ' <br> State:- ' + state + '<br> City:- ' + sts + '<br><br>' +
+        'message:- ' + message + ' ';
+    Email.send({
+        SecureToken: "4e701d23-d2dc-4802-a764-f7b0e0ab0961",
+        To: email,
+        From: "arltestmailer@gmail.com",
+        Subject: "Contact US",
+        Body: subject
+    }).then(
+        message => alert("Mail has been sent.")
+    );
+
+
+}
+
+function sendMailcareer(event) {
+    //alert('pritesh');
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var mobile = $('#mobile').val();
+    var sts = $('#sts').val();
+    var state = $('#state').val();
+    var message = $('#message').val();
+    var category_career = $('#category_career').val();
+    var file = document.getElementById("fileToUpload").files[0];
+    //var file = event.srcElement.files[0];
+    var reader = new FileReader();
+    reader.readAsBinaryString(file);
+    reader.onload = function() {
+        var dataUri = "data:" + file.type + ";base64," + btoa(reader.result);
+
+        var subject = 'Hi, <br> <br>  Applied For ' + category_career + ' <br><br> Name:- ' + name + ' <br> Email:- ' + email + ' ' +
+            ' <br> Mobile Number:- ' + mobile + ' <br> State:- ' + state + '<br> City:- ' + sts + '<br><br>' +
+            'message:- ' + message + ' ';
+        Email.send({
+            SecureToken: "4e701d23-d2dc-4802-a764-f7b0e0ab0961",
+            To: email,
+            From: "arltestmailer@gmail.com",
+            Subject: "Career",
+            Body: subject,
+            Attachments: [{
+                name: file.name,
+                data: dataUri
+            }]
+        }).then(
+            message => alert("Mail has been sent.")
+        );
+    };
+
+
+}
+
 function myFunction1() {
     var dots = document.getElementById("dots1");
     var moreText = document.getElementById("more1");
