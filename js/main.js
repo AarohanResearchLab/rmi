@@ -148,7 +148,7 @@ function sendMailcontactus() {
         'message:- ' + message + ' ';
     Email.send({
         SecureToken: "4e701d23-d2dc-4802-a764-f7b0e0ab0961",
-        To: email,
+        To: "info@ravimalviyaindustries.com",
         From: "arltestmailer@gmail.com",
         Subject: "Contact US",
         Body: subject
@@ -180,7 +180,7 @@ function sendMailcareer(event) {
             'message:- ' + message + ' ';
         Email.send({
             SecureToken: "4e701d23-d2dc-4802-a764-f7b0e0ab0961",
-            To: email,
+            To: "info@ravimalviyaindustries.com",
             From: "arltestmailer@gmail.com",
             Subject: "Career",
             Body: subject,
