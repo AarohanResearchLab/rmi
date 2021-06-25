@@ -960,6 +960,16 @@
     <script>
         $(".nav-link").removeClass("active");
         $(".nav-link:nth-child(3)").addClass("active");
+
+        var loc = window.location.href;
+
+          var product = loc.split("?id=");
+          $('#portfolio-flters li').each(function(){
+            if($(this).attr('data-filter') == "."+product[1]){
+              $('html,body').animate({scrollTop: $(this).offset().top}, 1000);
+              $(this).click();
+            }
+          })
     </script>
 </body>
 
