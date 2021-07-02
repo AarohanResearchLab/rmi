@@ -1,0 +1,5 @@
+Brocher Download.
+Video IN product page.
+catogery button redirect to category.
+radio button for feedback or query in contect us.
+Carrier page.
