@@ -8,6 +8,40 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+.floating-btn {
+    z-index: 1000;
+    position: fixed;
+    bottom: 10%;
+    left: -50px;
+    border-radius: 0 !important;
+    font-family: sans-serif !important;
+    transform: rotate(270deg) !important;
+    background: #dc6b17 !important;
+    border-color: #dc6b17 !important;
+}
+
+.floating-content {
+    z-index: 1000;
+    left: 0;
+    bottom: calc(10% + 70px);
+    padding: 15px;
+    border-radius: 5px;
+    position: fixed;
+    left: -245px;
+    opacity: 0;
+    transition: all .3s;
+    width: 550px;
+    background: #dfb163;
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.floating-content.show {
+    left: 4px;
+    opacity: 1;
+}
+
 .watch-more {
     display: inline-block;
     color: #424b5a;
@@ -81,7 +115,7 @@
         width: 100%;
     }
     .video-popup {
-      height:auto;
+        height: auto;
     }
 }
 
