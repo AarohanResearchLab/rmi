@@ -1,4 +1,26 @@
+$(document).ready(function() {
+    $('.floating-btn').click(function() {
+        if ($('.floating-content').hasClass('show')) {
+            $('.floating-content').removeClass('show');
+        } else {
+            $('.floating-content').addClass('show')
+        }
+    })
+});
+
 (function($) {
+
+    var d = new Date(),
+        minutes = d.getMinutes().toString().length == 1 ? '0' + d.getMinutes() : d.getMinutes(),
+        hours = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours(),
+        ampm = d.getHours() >= 12 ? 'pm' : 'am',
+        months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+
+    var x = days[d.getDay()] + ' ' + months[d.getMonth()] + ' ' + d.getDate() + ' ' + d.getFullYear() + ' ' + hours + ':' + minutes + ampm;
+    $('.chat-start').html(x);
+
     "use strict";
 
     // Dropdown on mouse hover
@@ -143,8 +165,9 @@ function sendMailcontactus() {
     var sts = $('#sts').val();
     var state = $('#state').val();
     var message = $('#message').val();
+    var country2 = $('#country2').val();
     var subject = 'Hi,<br><br> Name:- ' + name + ' <br> Email:- ' + email + ' ' +
-        ' <br> Mobile Number:- ' + mobile + ' <br> State:- ' + state + '<br> City:- ' + sts + '<br><br>' +
+        ' <br> Mobile Number:- ' + mobile + ' <br> Country:- ' + country2 + ' <br> State:- ' + state + '<br> City:- ' + sts + '<br><br>' +
         'message:- ' + message + ' ';
     Email.send({
         SecureToken: "4e701d23-d2dc-4802-a764-f7b0e0ab0961",
@@ -167,6 +190,7 @@ function sendMailcareer(event) {
     var sts = $('#sts').val();
     var state = $('#state').val();
     var message = $('#message').val();
+    var country2 = $('#country2').val();
     var category_career = $('#category_career').val();
     var file = document.getElementById("fileToUpload").files[0];
     //var file = event.srcElement.files[0];
@@ -176,7 +200,7 @@ function sendMailcareer(event) {
         var dataUri = "data:" + file.type + ";base64," + btoa(reader.result);
 
         var subject = 'Hi, <br> <br>  Applied For ' + category_career + ' <br><br> Name:- ' + name + ' <br> Email:- ' + email + ' ' +
-            ' <br> Mobile Number:- ' + mobile + ' <br> State:- ' + state + '<br> City:- ' + sts + '<br><br>' +
+            ' <br> Mobile Number:- ' + mobile + ' <br> Country:- ' + country2 + ' <br> State:- ' + state + '<br> City:- ' + sts + '<br><br>' +
             'message:- ' + message + ' ';
         Email.send({
             SecureToken: "4e701d23-d2dc-4802-a764-f7b0e0ab0961",
@@ -194,6 +218,18 @@ function sendMailcareer(event) {
     };
 
 
+}
+
+function Hidestste() {
+    var country2 = $('#country2').val();
+
+    if (country2 == 'India') {
+        $('#statehide').show();
+        $('#cityhide').show();
+    } else {
+        $('#statehide').hide();
+        $('#cityhide').hide();
+    }
 }
 
 function myFunction1() {

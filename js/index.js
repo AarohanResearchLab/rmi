@@ -1,23 +1,78 @@
-document.addEventListener("DOMContentLoaded", () => {
+$(function() {
     const inputField = document.getElementById("input");
-    inputField.addEventListener("keydown", (e) => {
+    inputField.addEventListener("keyup", (e) => {
+
         if (e.code === "Enter") {
+
             let input = inputField.value;
             inputField.value = "";
-            output(input);
+            const messagesContainer = document.getElementById("messages");
+
+            let userDiv = document.createElement("div");
+            userDiv.id = "user";
+            userDiv.className = "chat-bubble me";
+            userDiv.innerHTML = `${input}`;
+            messagesContainer.appendChild(userDiv);
+            setTimeout(() => {
+                output(input);
+            }, 2000);
+
         }
     });
 });
-
-
 
 
 function chstmassege() {
     const inputField = document.getElementById("input");
     let input = inputField.value;
     inputField.value = "";
-    output(input);
+
+    const messagesContainer = document.getElementById("messages");
+
+    let userDiv = document.createElement("div");
+    userDiv.id = "user";
+    userDiv.className = "chat-bubble me";
+    userDiv.innerHTML = `${input}`;
+    messagesContainer.appendChild(userDiv);
+    setTimeout(() => {
+        output(input);
+    }, 2000)
 }
+
+
+function retriveDATAFromText(text, promptsArray) {
+    let reply;
+    let replyFound = false;
+    var foundstring = '';
+    var splittext = text.split(' ');
+    for (var i = 0; i < splittext.length; i++) {
+        // console.log(x[i]);
+        for (let x = 0; x < promptsArray.length; x++) {
+            for (let y = 0; y < promptsArray[x].length; y++) {
+                if (promptsArray[x][y].toLowerCase() === splittext[i].toLowerCase()) {
+                    foundstring = splittext[i];
+                    //console.log(splittext[i]);
+                    // reply = replies[Math.floor(Math.random() * replies.length)];
+                    replyFound = true;
+                    // Stop inner loop when input value matches prompts
+                    break;
+                }
+            }
+            if (replyFound) {
+                // Stop outer loop when reply is found instead of interating through the entire array
+                break;
+            }
+        }
+        if (replyFound) {
+            // Stop outer loop when reply is found instead of interating through the entire array
+            break;
+        }
+    }
+
+    return foundstring;
+}
+
+
 
 function output(input) {
     let product;
@@ -56,6 +111,9 @@ function output(input) {
 function compare(promptsArray, repliesArray, string) {
     let reply;
     let replyFound = false;
+
+    string = retriveDATAFromText(string, promptsArray)
+
     for (let x = 0; x < promptsArray.length; x++) {
         for (let y = 0; y < promptsArray[x].length; y++) {
             if (promptsArray[x][y] === string) {
@@ -75,34 +133,358 @@ function compare(promptsArray, repliesArray, string) {
 }
 
 function addChat(input, product) {
-    const messagesContainer = document.getElementById("messages");
 
 
 
-    let botDiv = document.createElement("div");
-    let botImg = document.createElement("img");
-    let botText = document.createElement("span");
-    botDiv.id = "bot";
-    botDiv.className = "chat-bubble you";
-    botText.innerText = "Typing...";
-    botDiv.appendChild(botText);
-    botDiv.appendChild(botImg);
-    messagesContainer.appendChild(botDiv);
-    // Keep messages at most recent
-    messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
-    botText.innerText = `${product}`;
 
-    let userDiv = document.createElement("div");
-    userDiv.id = "user";
-    userDiv.className = "chat-bubble me";
-    userDiv.innerHTML = `${input}`;
-    messagesContainer.appendChild(userDiv);
-    // Fake delay to seem "real"
-    // setTimeout(() => {
-    //   botText.innerText = `${product}`;
-    //   textToSpeech(product)
-    // }, 2000
-    // )
+    if (product == 'Please choose one of flollowing') {
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${'Please choose one of flollowing'}`;
+
+        const messagesContainer1 = $('#messages');
+        var userDiv =
+            '<span style="text-align: right;float: right;">' +
+            '<button class="btn-question" id="askquestion" onclick="GetChat(this);"> Ask a Question?</button>' +
+            ' <button class="btn-question" id="knowProduct" onclick="GetChat(this);" disabled="disabled">Know About Our Products?</button>' +
+            ' <button class="btn-question" id="service" onclick="GetChat(this);">Services</button>' +
+            ' <button class="btn-question" id="salesDemo" onclick="GetChat(this);">Sales / Demo</button>' +
+            '  </span>';
+
+        messagesContainer1.append(userDiv);
+
+    }
+
+    if (product == 'About US') {
+
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${'Ravi Malviya Industries Pvt. Ltd. manufactures Gold Machinery using the outstanding Manufacturing Technique. Over the years the company has grown and diversified into areas of manufacturing, exporting, importing and trading a high-quality assortment of the Jewellery Machinery.'}`;
+
+        const messagesContainer1 = $('#messages');
+
+        var userDiv =
+            '<span style="text-align: right;float: right;">' +
+            '<a class="btn-question" id="salesdemo" href="about.html" Style="text-decoration: none;">Learn More</a>' +
+            '  </span>';
+
+        messagesContainer1.append(userDiv);
+
+    }
+
+    if (product == 'Rolling Machine') {
+
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${product+' product is our best product. '}`;
+
+        const messagesContainer1 = $('#messages');
+
+        var userDiv =
+            '<span style="text-align: right;float: right;">' +
+            ' <a class="btn-question" id="ourproduct" href="project.html?id=roll" Style="text-decoration: none;">Rolling Machine</a>' +
+            '  </span>';
+
+        messagesContainer1.append(userDiv);
+
+    }
+    if (product == 'Wire Drawing Machine') {
+
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${product+' product is our best product.'}`;
+
+        const messagesContainer1 = $('#messages');
+
+        var userDiv =
+            '<span style="text-align: right;float: right;">' +
+            '<a class="btn-question" id="ourservices" href="project.html?id=wire " Style="text-decoration: none;">Wire Drawing Machine</a>' +
+            '  </span>';
+
+        messagesContainer1.append(userDiv);
+
+    }
+    if (product == 'Hydraulic') {
+
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${product+' product is our best product.'}`;
+
+        const messagesContainer1 = $('#messages');
+
+        var userDiv =
+            '<span style="text-align: right;float: right;">' +
+
+            '<a class="btn-question" id="salesdemo" href="project.html?id=hydras" Style="text-decoration: none;">Hydraulics</a>' +
+            '  </span>';
+
+        messagesContainer1.append(userDiv);
+
+    }
+    if (product == 'Furnace Machine') {
+
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${product+' product is our best product.'}`;
+
+        const messagesContainer1 = $('#messages');
+
+        var userDiv =
+            '<span style="text-align: right;float: right;">' +
+
+            '<a class="btn-question" id="salesdemo" href="project.html?id=furnance" Style="text-decoration: none;">Furnace Machine</a>' +
+            '  </span>';
+
+        messagesContainer1.append(userDiv);
+
+    }
+    if (product == 'Tools & Accessories') {
+
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${product+' product is our best product.'}`;
+
+        const messagesContainer1 = $('#messages');
+
+        var userDiv =
+            '<span style="text-align: right;float: right;">' +
+
+            '<a class="btn-question" id="salesdemo" href="project.html?id=tools" Style="text-decoration: none;">Tools & Accessories</a>' +
+            '  </span>';
+
+        messagesContainer1.append(userDiv);
+
+    }
+    if (product == 'Hollow chain setup') {
+
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${product+' product is our best product.'}`;
+
+        const messagesContainer1 = $('#messages');
+
+        var userDiv =
+            '<span style="text-align: right;float: right;">' +
+
+            '<a class="btn-question" id="salesdemo" href="project.html?id=hollow" Style="text-decoration: none;">Hollow chain setup</a>' +
+            '  </span>';
+
+        messagesContainer1.append(userDiv);
+
+
+    }
+
+    if (product == 'Brochure & Video') {
+
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${product+' product is our best product.'}`;
+
+        const messagesContainer1 = $('#messages');
+
+        var userDiv =
+            '<span style="text-align: right;float: right;">' +
+
+            '<a class="btn-question" id="salesdemo" href="project.html?id=video" Style="text-decoration: none;">Brochure & Video</a>' +
+            '  </span>';
+
+        messagesContainer1.append(userDiv);
+
+    }
+    if (product == 'Careers') {
+
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${"We are Manufacture of Gold Machineries using world's Best Manufacturing practice. We make great efforts in selecting the right candidates and invest heavily to provide the retention and training."}`;
+
+        const messagesContainer1 = $('#messages');
+
+        var userDiv =
+            '<span style="text-align: right;float: right;">' +
+
+            '<a class="btn-question" id="salesdemo" href="carrier.html " Style="text-decoration: none;">Learn More</a>' +
+            '  </span>';
+
+
+        messagesContainer1.append(userDiv);
+
+    }
+    if (product == 'Contact us') {
+
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${"We are Manufacture of Gold Machineries using world's Best Manufacturing practice. We make great efforts in selecting the right candidates and invest heavily to provide the retention and training."}`;
+
+        const messagesContainer1 = $('#messages');
+
+        var userDiv =
+            '  <div class="chat-bubble you askquestionanswer">  We will reach you soon.' +
+            '<a class="btn-question" id="salesdemo" href="contact.html " Style="text-decoration: none;">Learn More</a>' +
+
+            ' </div> <span style="text-align: right;float: right;">';
+
+
+        messagesContainer1.append(userDiv);
+
+    }
+
+    if (product == 'Product') {
+
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${"Product Details."}`;
+
+        const messagesContainer1 = $('#messages');
+
+
+        var userDiv =
+            '  <div class="chat-bubble you">Please choose one of our products category.</div> <span style="text-align: right;float: right;">' +
+            ' <a class="btn-question" id="ourproduct" href="project.html?id=roll" Style="text-decoration: none;">Rolling Machine</a>' +
+            '<a class="btn-question" id="ourservices" href="project.html?id=wire " Style="text-decoration: none;">Wire Drawing Machine</a>' +
+            '<a class="btn-question" id="salesdemo" href="project.html?id=hydras" Style="text-decoration: none;">Hydraulics</a>' +
+            '<a class="btn-question" id="salesdemo" href="project.html?id=furnance" Style="text-decoration: none;">Furnace Machine</a>' +
+            '<a class="btn-question" id="salesdemo" href="project.html?id=tools" Style="text-decoration: none;">Tools & Accessories</a>' +
+            '<a class="btn-question" id="salesdemo" href="project.html?id=hollow" Style="text-decoration: none;">Hollow chain setup</a>' +
+            '<a class="btn-question" id="salesdemo" href="project.html?id=video" Style="text-decoration: none;">Brochure & Video</a>' +
+
+            '</span>';
+
+        messagesContainer1.append(userDiv);
+
+    }
+    $("#messages").animate({ scrollTop: $('#messages').height() }, "slow");
 
 }
 
@@ -232,4 +614,7 @@ function GetChat(chatID) {
     }
 
     $("#messages").animate({ scrollTop: $('#messages').height() }, "slow");
+    var htmlString = $('#messages').html();
+
+    localStorage.setItem("chatSession", htmlString);
 }
