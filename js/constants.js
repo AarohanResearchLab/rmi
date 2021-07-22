@@ -1,7 +1,7 @@
 // Options the user could type in
 const prompts = [
     ["hi", "hey", "hello", "good morning", "good afternoon"],
-    ["manufacturer", "importing", "mission", "goal", "exporting", "vision", "team", "trading"],
+    ["manufacturer", "importing", "mission", "goal", "exporting", "vision", "team", "trading","about"],
     ["double head", "rolling", "single head", "sensor"],
     ["bench", "wire", "drawing", "bull", " block", "powder", "table", "top"],
     ["hydraulic"],
@@ -26,7 +26,7 @@ const prompts = [
 // Possible responses, in corresponding order
 
 const replies = [
-    ["Please choose one of flollowing"],
+    ["Please choose one of following"],
     ["About US", ],
     ["Rolling Machine"],
     ["Wire Drawing Machine"],

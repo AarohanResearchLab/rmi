@@ -13,6 +13,9 @@ $(function() {
             userDiv.className = "chat-bubble me";
             userDiv.innerHTML = `${input}`;
             messagesContainer.appendChild(userDiv);
+            if (input == '') {
+                input = 'Product';
+            }
             setTimeout(() => {
                 output(input);
             }, 2000);
@@ -34,9 +37,14 @@ function chstmassege() {
     userDiv.className = "chat-bubble me";
     userDiv.innerHTML = `${input}`;
     messagesContainer.appendChild(userDiv);
+    if (input == '') {
+        input = 'Product';
+    }
+
     setTimeout(() => {
         output(input);
     }, 2000)
+
 }
 
 
@@ -135,9 +143,7 @@ function compare(promptsArray, repliesArray, string) {
 function addChat(input, product) {
 
 
-
-
-    if (product == 'Please choose one of flollowing') {
+    if(product=="I don't understand :/"){
         const messagesContainer = document.getElementById("messages");
 
         let botDiv = document.createElement("div");
@@ -151,18 +157,44 @@ function addChat(input, product) {
         messagesContainer.appendChild(botDiv);
 
         messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
-        botText.innerText = `${'Please choose one of flollowing'}`;
+        botText.innerText = `${'Sorry I could not understand! Please try again.'}`;
+
+        const messagesContainer1 = $('#messages');
+        
+       
+         
+    }
+    
+
+    if (product == 'Please choose one of following') {
+        const messagesContainer = document.getElementById("messages");
+
+        let botDiv = document.createElement("div");
+        let botImg = document.createElement("img");
+        let botText = document.createElement("span");
+        botDiv.id = "bot";
+        botDiv.className = "chat-bubble you";
+        botText.innerText = "Typing...";
+        botDiv.appendChild(botText);
+        botDiv.appendChild(botImg);
+        messagesContainer.appendChild(botDiv);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
+        botText.innerText = `${'Please choose from the followings'}`;
 
         const messagesContainer1 = $('#messages');
         var userDiv =
             '<span style="text-align: right;float: right;">' +
-            '<button class="btn-question" id="askquestion" onclick="GetChat(this);"> Ask a Question?</button>' +
-            ' <button class="btn-question" id="knowProduct" onclick="GetChat(this);" disabled="disabled">Know About Our Products?</button>' +
+            // '<button class="btn-question" id="askquestion" onclick="GetChat(this);"> Ask a Question?</button>' +
+          
+            ' <button class="btn-question" id="knowProduct" onclick="GetChat(this);" > Our Products</button>' +
             ' <button class="btn-question" id="service" onclick="GetChat(this);">Services</button>' +
             ' <button class="btn-question" id="salesDemo" onclick="GetChat(this);">Sales / Demo</button>' +
-            '  </span>';
+            '  <div class="chat-bubble you askquestionanswer"> Or ask me anything. </div></span>';
 
         messagesContainer1.append(userDiv);
+
+         
 
     }
 
@@ -209,7 +241,7 @@ function addChat(input, product) {
         messagesContainer.appendChild(botDiv);
 
         messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
-        botText.innerText = `${product+' product is our best product. '}`;
+        botText.innerText = `${'Click the below button to know more about '+product+'.' }`;
 
         const messagesContainer1 = $('#messages');
 
@@ -236,7 +268,7 @@ function addChat(input, product) {
         messagesContainer.appendChild(botDiv);
 
         messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
-        botText.innerText = `${product+' product is our best product.'}`;
+        botText.innerText = `${'Click the below button to know more about '+product+'.' }`;
 
         const messagesContainer1 = $('#messages');
 
@@ -263,7 +295,7 @@ function addChat(input, product) {
         messagesContainer.appendChild(botDiv);
 
         messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
-        botText.innerText = `${product+' product is our best product.'}`;
+        botText.innerText = `${'Click the below button to know more about '+product+'.' }`;
 
         const messagesContainer1 = $('#messages');
 
@@ -291,7 +323,7 @@ function addChat(input, product) {
         messagesContainer.appendChild(botDiv);
 
         messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
-        botText.innerText = `${product+' product is our best product.'}`;
+        botText.innerText = `${'Click the below button to know more about '+product+'.' }`;
 
         const messagesContainer1 = $('#messages');
 
@@ -319,7 +351,7 @@ function addChat(input, product) {
         messagesContainer.appendChild(botDiv);
 
         messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
-        botText.innerText = `${product+' product is our best product.'}`;
+        botText.innerText = `${'Click the below button to know more about '+product+'.' }`;
 
         const messagesContainer1 = $('#messages');
 
@@ -347,7 +379,7 @@ function addChat(input, product) {
         messagesContainer.appendChild(botDiv);
 
         messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
-        botText.innerText = `${product+' product is our best product.'}`;
+        botText.innerText = `${'Click the below button to know more about '+product+'.' }`;
 
         const messagesContainer1 = $('#messages');
 
@@ -377,7 +409,7 @@ function addChat(input, product) {
         messagesContainer.appendChild(botDiv);
 
         messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
-        botText.innerText = `${product+' product is our best product.'}`;
+        botText.innerText = `${'Click the below button to know more about '+product+'.' }`;
 
         const messagesContainer1 = $('#messages');
 
@@ -414,7 +446,7 @@ function addChat(input, product) {
 
             '<a class="btn-question" id="salesdemo" href="carrier.html " Style="text-decoration: none;">Learn More</a>' +
             '  </span>';
-
+         
 
         messagesContainer1.append(userDiv);
 
@@ -439,12 +471,10 @@ function addChat(input, product) {
         const messagesContainer1 = $('#messages');
 
         var userDiv =
-            '  <div class="chat-bubble you askquestionanswer">  We will reach you soon.' +
-            '<a class="btn-question" id="salesdemo" href="contact.html " Style="text-decoration: none;">Learn More</a>' +
-
+            '  <div class="chat-bubble you askquestionanswer"> Explore our product Brochure & Video, we will reach you soon.' +
             ' </div> <span style="text-align: right;float: right;">';
 
-
+            window.location.href = "RMI/project.html?id=video";
         messagesContainer1.append(userDiv);
 
     }
@@ -485,7 +515,8 @@ function addChat(input, product) {
 
     }
     $("#messages").animate({ scrollTop: $('#messages').height() }, "slow");
-
+    var htmlString = $('#messages').html();
+    sessionStorage.setItem("chatSession", htmlString);
 }
 
 function validatechat() {
@@ -544,7 +575,7 @@ function GetChat(chatID) {
             '<a class="btn-question" id="salesdemo" href="project.html?id=video" Style="text-decoration: none;">Brochure & Video</a>' +
 
             '</span>';
-        $('#knowProduct').attr("disabled", true)
+     //   $('#knowProduct').attr("disabled", true)
         messagesContainer.append(userDiv);
 
     }
@@ -552,7 +583,7 @@ function GetChat(chatID) {
 
         var userDiv =
             '  <div class="chat-bubble you askquestionanswer">Please put in your question. We shall share an adequate reply shortly.  </div> <span style="text-align: right;float: right;">';
-        $('#askquestion').attr("disabled", true)
+       // $('#askquestion').attr("disabled", true)
         messagesContainer.append(userDiv);
 
     }
@@ -566,7 +597,7 @@ function GetChat(chatID) {
             '<a class="btn-question" id="mailsupport"  href="#"  onclick="GetChat(this);" Style="text-decoration: none;">Mail Support</a>' +
             '<a class="btn-question" id="toolaccessories" href="project.html?id=tools" Style="text-decoration: none;">Tools & Accessories </a>';
 
-        $('#service').attr("disabled", true)
+      //  $('#service').attr("disabled", true)
         messagesContainer.append(userDiv);
 
     }
@@ -576,16 +607,16 @@ function GetChat(chatID) {
         var userDiv =
             '  <div class="chat-bubble you askquestionanswer"> Call Support: <br> Sales:  +91 78740-81360,  <br> +91 95100-26428,  <br>' +
             ' +91 93747-10436   <br> Administrator: +91 81609-35884 </div> <span style="text-align: right;float: right;">';
-        $('#callsupport').attr("disabled", true)
+      //  $('#callsupport').attr("disabled", true)
         messagesContainer.append(userDiv);
 
     }
     if ($(chatID).attr('id') == 'mailsupport') {
 
         var userDiv =
-            '  <div class="chat-bubble you askquestionanswer"> Mail Support: <br> Email Us : info@ravimalviyaindustries.com   <br> commercials@ravimalviyaindustries.com' +
+            '  <div class="chat-bubble you askquestionanswer"> Mail Support: <br> Email Us : ravimalviyaindustries@gmail.com   <br> office.ravimalviyaindustries@gmail.com' +
             ' </div> <span style="text-align: right;float: right;">';
-        $('#mailsupport').attr("disabled", true)
+      //  $('#mailsupport').attr("disabled", true)
         messagesContainer.append(userDiv);
 
     }
@@ -593,13 +624,13 @@ function GetChat(chatID) {
     if ($(chatID).attr('id') == 'salesDemo') {
 
         var userDiv =
-            '  <div class="chat-bubble you "> Email Us : info@ravimalviyaindustries.com   <br> commercials@ravimalviyaindustries.com' +
+            '  <div class="chat-bubble you "> Email Us : ravimalviyaindustries@gmail.com   <br> office.ravimalviyaindustries@gmail.com' +
             ' </div>  ' +
             '  <div class="chat-bubble you askquestionanswer"> Sales:  +91 78740-81360,  <br> +91 95100-26428,  <br>' +
             ' +91 93747-10436   <br> Administrator: +91 81609-35884 </div> ' +
             ' <span style="text-align: right;float: right;"> <a class="btn-question" id="interested" href="#" onclick="GetChat(this);" Style="text-decoration: none;"> Are you interested?</a></span>  ';
 
-        $('#salesDemo').attr("disabled", true)
+      //  $('#salesDemo').attr("disabled", true)
         messagesContainer.append(userDiv);
 
     }
@@ -608,13 +639,14 @@ function GetChat(chatID) {
         var userDiv =
             '  <div class="chat-bubble you askquestionanswer">  We will reach you soon.' +
             ' </div> <span style="text-align: right;float: right;">';
-        $('#interested').attr("disabled", true)
+      //  $('#interested').attr("disabled", true)
         messagesContainer.append(userDiv);
 
     }
 
     $("#messages").animate({ scrollTop: $('#messages').height() }, "slow");
     var htmlString = $('#messages').html();
-
-    localStorage.setItem("chatSession", htmlString);
+    sessionStorage.setItem("chatSession", htmlString);
+    //localStorage.setItem("chatSession", htmlString);
+    //localStorage.setItem("chatstrt", "true");
 }

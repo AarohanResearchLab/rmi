@@ -10,6 +10,8 @@ $(document).ready(function() {
 
 (function($) {
 
+
+
     var d = new Date(),
         minutes = d.getMinutes().toString().length == 1 ? '0' + d.getMinutes() : d.getMinutes(),
         hours = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours(),
@@ -171,7 +173,7 @@ function sendMailcontactus() {
         'message:- ' + message + ' ';
     Email.send({
         SecureToken: "4e701d23-d2dc-4802-a764-f7b0e0ab0961",
-        To: "info@ravimalviyaindustries.com",
+        To: "ravimalviyaindustries@gmail.com",
         From: "arltestmailer@gmail.com",
         Subject: "Contact US",
         Body: subject
@@ -204,7 +206,7 @@ function sendMailcareer(event) {
             'message:- ' + message + ' ';
         Email.send({
             SecureToken: "4e701d23-d2dc-4802-a764-f7b0e0ab0961",
-            To: "info@ravimalviyaindustries.com",
+            To: "ravimalviyaindustries@gmail.com",
             From: "arltestmailer@gmail.com",
             Subject: "Career",
             Body: subject,
@@ -216,6 +218,24 @@ function sendMailcareer(event) {
             message => alert("Mail has been sent.")
         );
     };
+
+
+}
+
+function newslettermail() {
+    var newsname = $('#newsname').val();
+    var newsmail = $('#newsmail').val();
+    var subject = 'Hi,<br><br>  Name:- ' + newsname + ' <br> Email:- ' + newsmail + ' ' +
+        '<br><br> ' + newsname + '  wants to newsletter from Ravi Malviya Industries.';
+    Email.send({
+        SecureToken: "4e701d23-d2dc-4802-a764-f7b0e0ab0961",
+        To: "ravimalviyaindustries@gmail.com",
+        From: "arltestmailer@gmail.com",
+        Subject: "Newsletter",
+        Body: subject
+    }).then(
+        message => alert("Mail has been sent.")
+    );
 
 
 }
