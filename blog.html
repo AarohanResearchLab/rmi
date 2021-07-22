@@ -23,7 +23,7 @@
 
     <!-- Google Web Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
-
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
@@ -314,12 +314,12 @@
                 <p><i class="fa fa-map-marker-alt mr-2"></i> Unit-2 Address: L-596 GIDC Estate Odhav, Post Office Lane, Chhotalal Odhav Ahmedabad-382415 Gujarat India.</p>
 
                 <p><i class="fa fa-phone-alt mr-2"></i>+91-7874081360</p>
-                <p><i class="fa fa-envelope mr-2"></i>info@ravimalviyaindustries.com<br>commercials@ravimalviyaindustries.com </p>
+                <p><i class="fa fa-envelope mr-2"></i>ravimalviyaindustries@gmail.com<br>office.ravimalviyaindustries@gmail.com </p>
                 <p><i class="far fa-check-square  mr-3"></i>GST No.: 24AAKCR2429M1Z3
                     <p><i class="far fa-check-square  mr-3"></i>CIN No.: U29309GJ2020PTC114320
                     </p>
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-white px-3" href="">
+                        <a class="text-white px-3" href="https://api.whatsapp.com/send?phone=+917874081360&text=Hello">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                         <a class="text-white px-3" href="https://www.facebook.com/Ravi-Malviya-Industries-Private-Limited-2389289707962278/">
@@ -362,10 +362,10 @@
                 <h4 class="text-primary mb-4">Newsletter</h4>
                 <form action="">
                     <div class="form-group">
-                        <input type="text" class="form-control border-0" placeholder="Your Name" required="required" />
+                        <input type="text" class="form-control border-0" placeholder="Your Name" id="newsname" required="required" />
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control border-0" placeholder="Your Email" required="required" />
+                        <input type="email" class="form-control border-0" placeholder="Your Email" id="newsmail" required="required" />
                     </div>
 
                 </form>
@@ -490,9 +490,12 @@
             <div class="powered-by">Powered by css3transition</div>
         </div>
     </div>
-    <div class="chat-bot-icon">
-        <!-- <img src="img/we-are-here.svg" /> -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square animate"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    <div class="chat-bot-icon" style="background: #dfb16300;">
+        <img src="img/girl.png" />
+        <img src="img/we-are-here.svg" style=" top: -71px;  transform: rotate( 381deg);" />
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square animate"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        
+         -->
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x "><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </div>
     <!-- Chat Bot UI Ends -->
@@ -538,13 +541,19 @@
 
             jQuery('.roll').click();
         });
-        if (localStorage.getItem("chatSession") != null) {
+        if (sessionStorage.getItem("chatSession") != null) {
             $('.chat-mail').addClass('hide');
             $('.chat-body').removeClass('hide');
             $('.chat-input').removeClass('hide');
             $('.chat-header-option').removeClass('hide');
-            //  alert(localStorage.getItem("chatSession"));
-            $('#messages').html(localStorage.getItem("chatSession"));
+            $("#messages").animate({ scrollTop: $('#messages').height() }, "slow");
+           // console.log('SDFSDF'+sessionStorage.getItem("chatSession"));
+            $('#messages').html(sessionStorage.getItem("chatSession"));
+            setTimeout(function(){ 
+           
+           $('.chat-bot-icon').trigger('click');
+    }, 500);
+            
         }
     </script>
     <!--  Governing Law-->
